@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-config-prettier"
+  ],
+  "rules": {
+    "ordered-imports": false,
+    "interface-name": [true, "never-prefix"],
+    "no-implicit-dependencies": [true, "dev"],
+    "import-spacing": true,
+    "no-empty": true,
+    "indent": [true, "spaces", 2],
+    "no-console": false
+  }
+}
