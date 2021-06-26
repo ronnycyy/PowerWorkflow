@@ -22,7 +22,10 @@
     "antd": "^4.16.1",
     "autoprefixer": "^9.8.6",
     "cssnano": "^4.1.10",
-    "fabric": "^4.5.0",
+    "fabric": "^4.5.1",
+    "react-redux": "^7.2.4",
+    "redux": "^4.1.0",
+    "redux-thunk": "^2.3.0",
     "yargs-parser": "^20.2.7"
   },
   "devDependencies": {

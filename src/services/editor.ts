@@ -1,17 +1,12 @@
-import { useEffect } from "react";
 import { fabric } from "fabric";
-import {CANVAS_ID, HEADER_ID, SIDEBAR_ID} from "../configs/default";
+import { CANVAS_BACKGROUND_COLOR, CANVAS_ID, HEADER_ID, SIDEBAR_ID } from "../configs/default";
 
-export function useInitCanvas() {
-  const backgroundColor = '#ffffff';
-
-  // trigger after dom mount
-  useEffect(() => {
-    const canvas = new fabric.Canvas(CANVAS_ID, getResponsiveSizeOfWindow());
-    canvas.setBackgroundColor(backgroundColor, () => null);
-    initGrid(canvas);
-    canvas.renderAll();
-  }, []);
+export function generateCanvasService() {
+  const canvas = new fabric.Canvas(CANVAS_ID, getResponsiveSizeOfWindow());
+  canvas.setBackgroundColor(CANVAS_BACKGROUND_COLOR, () => null);
+  initGrid(canvas);  // 绘制网格线
+  canvas.renderAll();
+  return canvas;
 }
 
 function getResponsiveSizeOfWindow() {
@@ -51,10 +46,10 @@ function initGrid(canvas: fabric.Canvas) {
     canvas.add(fvertical);
     canvas.add(svertical);
     if (i % 5 === 0) {
-      fhorizontal.set({stroke: borderColor});
-      shorizontal.set({stroke: borderColor});
-      fvertical.set({stroke: borderColor});
-      svertical.set({stroke: borderColor});
+      fhorizontal.set({ stroke: borderColor });
+      shorizontal.set({ stroke: borderColor });
+      fvertical.set({ stroke: borderColor });
+      svertical.set({ stroke: borderColor });
     }
   }
 }
