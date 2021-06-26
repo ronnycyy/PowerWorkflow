@@ -1,6 +1,20 @@
 # PowerWorkflow
 图形绘制器
 
+### 使用方法
+
+#### 克隆项目
+`git clone https://github.com/ronnycyy/PowerWorkflow.git`
+
+####  安装依赖
+`npm i`
+
+#### 开发环境启动，热更新
+`npm start`
+
+#### 打包
+`npm build`
+
 ### 功能
 
 #### 1.0
