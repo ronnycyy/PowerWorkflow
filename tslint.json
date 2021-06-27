@@ -10,6 +10,7 @@
     "import-spacing": true,
     "no-empty": true,
     "indent": [true, "spaces", 2],
-    "no-console": false
+    "no-console": false,
+    "no-unused-expression": false
   }
 }

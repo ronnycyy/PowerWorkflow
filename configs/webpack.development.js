@@ -1,4 +1,5 @@
 const { join } = require('path');
+const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 
 module.exports = {
   devServer: {
@@ -6,6 +7,13 @@ module.exports = {
     hot: true,
     port: 3000
   },
+  plugins: [
+    new WebpackBuildNotifierPlugin({
+      title: "My Webpack Project",
+      // logo: path.resolve("./img/favicon.png"),
+      suppressSuccess: true,
+    })
+  ],
   module: {
     rules: [
       {

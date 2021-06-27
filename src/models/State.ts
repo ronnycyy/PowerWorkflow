@@ -1,8 +1,8 @@
-import { Canvas } from "fabric/fabric-impl";
 import Editor from "../layouts/Editor/Editor";
+import { fabric } from "fabric";
 
 export type Editor = {
-  canvas: Canvas;
+  canvas: fabric.Canvas;
 }
 
 type State = {

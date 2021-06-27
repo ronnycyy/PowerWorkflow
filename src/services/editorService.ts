@@ -1,7 +1,7 @@
 import { fabric } from "fabric";
 import { CANVAS_BACKGROUND_COLOR, CANVAS_ID, HEADER_ID, SIDEBAR_ID } from "../configs/default";
 
-export function generateCanvasService() {
+export const generateCanvasService = (): fabric.Canvas => {
   const canvas = new fabric.Canvas(CANVAS_ID, getResponsiveSizeOfWindow());
   canvas.setBackgroundColor(CANVAS_BACKGROUND_COLOR, () => null);
   initGrid(canvas);  // 绘制网格线
@@ -9,7 +9,7 @@ export function generateCanvasService() {
   return canvas;
 }
 
-function getResponsiveSizeOfWindow() {
+const getResponsiveSizeOfWindow = (): { width: number, height: number } => {
   const width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
   const height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
 
@@ -23,7 +23,7 @@ function getResponsiveSizeOfWindow() {
 }
 
 
-function initGrid(canvas: fabric.Canvas) {
+const initGrid = (canvas: fabric.Canvas): void => {
   const grid = 30;
   const width = 5000;
   const borderColor = '#cccccc';
@@ -53,3 +53,4 @@ function initGrid(canvas: fabric.Canvas) {
     }
   }
 }
+

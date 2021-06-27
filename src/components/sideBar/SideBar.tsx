@@ -5,35 +5,44 @@ import './SideBar.less';
 import { useDispatch, useSelector } from 'react-redux';
 import State from '../../models/State';
 import { fabric } from 'fabric';
-import {editorAction} from "../../store/actions/editorAction";
+import { editorAction } from "../../store/actions/editorAction";
+import { addShapeWithText } from "../../services/addShapeService";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
   const canvas = useSelector<State, fabric.Canvas>(state => state.editor.canvas);
 
   const add = () => {
-    const rect = new fabric.Rect({
-      type: 'rect',
-      left: 100,
-      top: 50,
-      fill: '#D81B60',
-      width: 50,
-      height: 50,
-      strokeWidth: 2,
-      stroke: "#880E4F",
-      rx: 10,
-      ry: 10,
-      angle: 0,
-      scaleX: 3,
-      scaleY: 3,
-      cornerStyle: 'circle',
-      lockRotation: true,
-      selectable: true,
+
+    const text = new fabric.IText("结点", {
+      fontFamily: 'Comic Sans',
+      fontSize: 16,
+      stroke: '#000',
+      strokeWidth: 1,
+      fill: "#000",
+      originX:'center',
+      originY:'center'
+    });
+    const circle = new fabric.Circle({
+      strokeWidth: 5,
+      radius: 64,
+      fill: '#fff',
+      stroke: '#000',
+      originX:'center',
+      originY:'center'
     });
 
-    canvas.add(rect);
-    const obj = canvas.getObjects()[canvas.size()-1];
-    canvas.setActiveObject(obj);
+    const options = {
+      cornerStyle: 'circle',
+      cornerColor: '#548DE8',
+      borderColor: '#35CEE9',
+      transparentCorners: false,
+      lockRotation: true,
+    }
+
+    const obj = addShapeWithText(circle, text, canvas, options as fabric.IGroupOptions);
+
+
     dispatch(editorAction.addShape(obj));
   }
 

@@ -1,6 +1,6 @@
 import { Editor } from "../../models/State";
 import { EditorActionType, EDITOR_ACTION } from "../actions/editorAction";
-import {fabric} from "fabric";
+import { fabric } from "fabric";
 
 const initState: Editor = {
   canvas: null
