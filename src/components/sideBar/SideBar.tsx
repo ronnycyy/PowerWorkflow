@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import State from '../../models/State';
 import { fabric } from 'fabric';
 import { editorAction } from "../../store/actions/editorAction";
-import { addShapeWithText } from "../../services/addShapeService";
+import { addGroup } from "../../services/groupService";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
@@ -40,7 +40,7 @@ const Sidebar = () => {
       lockRotation: true,
     }
 
-    const obj = addShapeWithText(circle, text, canvas, options as fabric.IGroupOptions);
+    const obj = addGroup(circle, text, canvas, options as fabric.IGroupOptions);
 
 
     dispatch(editorAction.addShape(obj));

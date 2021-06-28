@@ -1,12 +1,9 @@
 const ARROW = {
   HEAD: {
-    WIDTH: 10,
-    HEIGHT: 10
+    WIDTH: 5,
+    HEIGHT: 5
   },
-  LINE: {
-    WIDTH: 4,
-    HEIGHT: 100
-  },
+  LENGTH: 100,
   COLOR: '#000'
 }
 

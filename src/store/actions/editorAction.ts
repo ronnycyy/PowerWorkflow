@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { generateCanvasService } from '../../services/editorService';
+import { generateCanvasService } from '../../services/canvasService';
 import { fabric } from 'fabric';
 
 export enum EDITOR_ACTION {

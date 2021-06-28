@@ -18,14 +18,15 @@ const addHandler = (eventData, transform) => {
   const canvas = target.canvas;
 
   target.clone((cloned) => {
-    cloned.top += target.height + ARROW.LINE.HEIGHT + ARROW.HEAD.HEIGHT;
+    cloned.top += target.height + ARROW.LENGTH  + ARROW.HEAD.HEIGHT;
     canvas.add(cloned);
 
-    // 将箭头附加到对象上，方便箭头随对象调整位置
+    // 生成箭头
     const x = target.oCoords.mb.x;
     const y = target.oCoords.mb.y;
     const arrow = initArrow(canvas, { x, y });
 
+    // 将箭头附加到两个对象上，方便箭头随对象调整位置
     target.arrowDown = arrow;
     cloned.arrowUp = arrow;
   });

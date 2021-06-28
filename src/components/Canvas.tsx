@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { CANVAS_ID } from "../configs/default";
 import { editorAction } from '../store/actions/editorAction';
-import initControls from "../services/showControls";
+import initControls from "../services/controlService";
 
 const Canvas = () => {
   const dispatch = useDispatch();

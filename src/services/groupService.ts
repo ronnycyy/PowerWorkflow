@@ -1,6 +1,6 @@
 import { fabric } from "fabric";
 
-export const addShapeWithText = (object: fabric.Object, text: fabric.IText, canvas: fabric.Canvas, options: fabric.IGroupOptions) => {
+export const addGroup = (object: fabric.Object, text: fabric.IText, canvas: fabric.Canvas, options: fabric.IGroupOptions) => {
   // 存放group的所有子项
   let items: fabric.Object[] = [];
 
