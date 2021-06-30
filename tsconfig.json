@@ -3,7 +3,13 @@
     "allowJs": true,
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
-    "types": ["react/next", "react-dom/next"]
+    "types": ["react/next", "react-dom/next"],
+    "lib": [
+      "dom",
+      "es5",
+      "scripthost",
+      "es2015.collection"
+    ]
   },
   "include": [
     "src"
