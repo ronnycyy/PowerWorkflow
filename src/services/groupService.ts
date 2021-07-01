@@ -1,4 +1,5 @@
 import { fabric } from "fabric";
+import {drawObjectGuides} from "./guideLineService";
 
 export const addGroup = (object: fabric.Object, text: fabric.IText, canvas: fabric.Canvas, options: fabric.IGroupOptions) => {
   // 存放group的所有子项
@@ -57,8 +58,16 @@ const divideGroupToRender = (group: fabric.Group, canvas: fabric.Canvas) => {
 
 const generateGroup = (items: fabric.Object[], canvas, text, option?: fabric.IGroupOptions) => {
   const group = new fabric.Group(items, option);
+
+  (group as any).guides = {};
+
   group.on('mousedblclick', handleDblclick.bind(this, group, canvas, text));
+  // group.on('moving', handleMoving.bind(this, canvas));
+
   canvas.add(group);
 
   return group;
 }
+
+
+

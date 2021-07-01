@@ -1,12 +1,39 @@
 import { fabric } from "fabric";
 import { CANVAS_BACKGROUND_COLOR, CANVAS_ID, HEADER_ID, SIDEBAR_ID } from "../configs/default";
+import {adjustArrow} from "./arrowService";
+import {drawObjectGuides, onObjectMoving} from "./guideLineService";
 
 export const generateCanvasService = (): fabric.Canvas => {
   const canvas = new fabric.Canvas(CANVAS_ID, getResponsiveSizeOfWindow());
   canvas.setBackgroundColor(CANVAS_BACKGROUND_COLOR, () => null);
   initGrid(canvas);  // 绘制网格线
   canvas.renderAll();
+
+  canvas.on('object:moving', (e) => {
+    adjustArrow(e.target as any);
+    onObjectMoving(e, canvas);  // 绘制引导线
+    canvas.renderAll();
+  });
+
+  canvas.on('object:moved', (e) => {
+    onObjectMoved(e.target, canvas);
+  });
+
+  canvas.on('object:added', (e) => {
+    // onObjectAdded(e.target, canvas);
+  });
+
   return canvas;
+}
+
+function onObjectMoved(obj, canvas) {
+  // Add the smart guides around the object
+  drawObjectGuides(obj, canvas);
+}
+
+function onObjectAdded(obj, canvas) {
+  // Add the smart guides around the object
+  drawObjectGuides(obj, canvas);
 }
 
 const getResponsiveSizeOfWindow = (): { width: number, height: number } => {

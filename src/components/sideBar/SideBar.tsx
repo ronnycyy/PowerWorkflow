@@ -7,17 +7,12 @@ import State from '../../models/State';
 import { fabric } from 'fabric';
 import { editorAction } from "../../store/actions/editorAction";
 import { addGroup } from "../../services/groupService";
-import {testGuid} from "../../services/testGuide";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
   const canvas = useSelector<State, fabric.Canvas>(state => state.editor.canvas);
 
   const add = () => {
-
-    testGuid(canvas);
-    return;
-
     const text = new fabric.IText("结点", {
       fontFamily: 'Comic Sans',
       fontSize: 16,
